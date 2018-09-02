@@ -98,10 +98,12 @@ export default {
     },
     // 可视范围内的数据
     startIndex() {
-      return Math.floor(this.scrollTop / this.rowHeight);
+      const start = Math.floor(this.scrollTop / this.rowHeight) - 5;
+      return start < 0 ? 0 : start;
     },
     endIndex() {
-      return this.startIndex + Math.ceil(this.showHeight / this.rowHeight);
+      const end = this.startIndex + Math.ceil(this.showHeight / this.rowHeight) + 5;
+      return end > this.tableData.length ? this.tableData.length : end;
     },
     showTableData() {
       return this.tableData.slice(this.startIndex, this.endIndex);

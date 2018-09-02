@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <input type="number" placeholder="输入数据量" v-model="dataSize">
+    <button @click="initData">生成数据</button>
     <vue-table
       :columns='columns'
       :tableData='tableData'>
@@ -17,6 +19,7 @@ export default {
   },
   data() {
     return {
+      dataSize: 10000,
       columns: [
         {
           key: 'no',
@@ -60,9 +63,9 @@ export default {
   },
   methods: {
     initData() {
-      const dataSize = 100000;
+      // const dataSize = 10000;
       const dataList = [];
-      for (let i = 1; i <= dataSize; i++) {
+      for (let i = 1; i <= this.dataSize; i++) {
         const data = {
           no: i
         };
