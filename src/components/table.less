@@ -1,0 +1,103 @@
+@border-color: #e9eaec;
+* {
+    box-sizing: border-box;
+}
+
+.vue-table-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    border: 1px solid @border-color;
+    position: relative;
+}
+
+.vue-table {
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    color: #495060;
+    font-size: 12px;
+    font-weight: 400;
+    table {
+        border-spacing: 0;
+    }
+    .vue-table-cell {
+        text-align: center;
+        padding: 0 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-break: break-all;
+    }
+}
+
+/* 固定表头 */
+
+.vue-table-header-wrapper {
+    z-index: 70;
+    position: sticky;
+    top: 0;
+    height: 50px;
+    table {
+        table-layout: fixed;
+        height: 100%;
+        th {
+            border-right: 1px solid @border-color;
+            border-bottom: 1px solid @border-color;
+            background: #fff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-break: break-all;
+        }
+    }
+    /* 固定表头的第一列 */
+    .vue-table-fixed-header {
+        position: sticky;
+        left: 0;
+        z-index: 110;
+    }
+    .vue-table-header {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+/* 表体 */
+
+.vue-table-content {
+    width: 100%;
+    height: auto;
+    table {
+        table-layout: fixed;
+        tr {
+            height: 48px;
+        }
+        td {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            border-bottom: 1px solid @border-color;
+            border-right: 1px solid @border-color;
+            border-left: 1px solid transparent;
+            border-top: 1px solid transparent;
+        }
+    }
+    /* 固定第一列 */
+    .vue-table-fixed-table {
+        position: sticky;
+        left: 0;
+        z-index: 60;
+        tr {
+            background-color: #fff;
+        }
+    }
+    .vue-table-content-table {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
